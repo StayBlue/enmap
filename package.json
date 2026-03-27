@@ -4,11 +4,18 @@
   "description": "A Bun-focused fork of Enmap with bun:sqlite persistence and the current TypeScript API.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "type": "module",
   "scripts": {
     "build": "bunx tsc",
     "dev": "bunx tsc --watch",
     "format": "bunx prettier . --write",
+    "prepare": "bun run build",
     "prepublishOnly": "bun run build",
     "test": "bun test",
     "docs": "bun ./scripts/generate-docs-enhanced.js all",
